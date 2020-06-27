@@ -12,10 +12,11 @@ app.use(courseRoute);
 
 
 // Connection to server 
+const PORT = process.env.PORT || 8080;
 mongoose.connect('mongodb://localhost:27017/coursesmanagement', { 
     useNewUrlParser: true, useUnifiedTopology: true }) 
     .then(() => { 
-        app.listen(9009, ()=>{
-            console.log('server 9009 is start!! ');
+        app.listen(PORT, ()=>{
+            console.log(`server ${PORT} is start!! `);
         });
     }).catch(err => console.error(err));
